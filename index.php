@@ -12,20 +12,21 @@
 <body>
 
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-    <input type="number" name="num01" placeholder="Number one">
-    <select name="operator">
-        <option value="add">+</option>
-        <option value="subtract">-</option>
-        <option value="multiply">*</option>
-        <option value="divide">/</option>
-    </select>
-    <input type="number" name="num02" placeholder="Number two">
-    <button>Calculate</button>
+    <input class="size" type="number" name="num01" placeholder="Number one"><br>
+    <select class="size" id="dropdown" name="operator">
+        <option value="add">+(Addition)</option>
+        <option value="subtract">-(Subtraction)</option>
+        <option value="multiply">*(Multiplication)</option>
+        <option value="divide">/(Division)</option>
+    </select><br>
+    <input class="size"  type="number" name="num02" placeholder="Number two"><br>
+    <button class="size">Calculate</button>
 </form>
 
-<?php
+<div class="container">
+    <?php
 
- if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
         /*$num01 = $_POST["num01"];
         $num02 = $_POST["num02"];*/
 
@@ -46,8 +47,8 @@
 
         // it is checking whether inputs are numbers or not
         if (!is_numeric($num01) || !is_numeric($num02)) {
-         echo "<p class='calc-error'>Only write numbers!</p>";
-         $errors = true;
+            echo "<p class='calc-error'>Only write numbers!</p>";
+            $errors = true;
         }
 
 
@@ -74,7 +75,9 @@
             echo "<p class='calc-result'>Result = " . $value ."</p>";
         }
     }
-?>
+    ?>
+</div>
+
 
 
 </body>
