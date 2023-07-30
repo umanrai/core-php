@@ -1,70 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        table, th, td {
+            border:1px solid black;
+        }
+    </style>
+
+    <title>Condition && Control</title>
+</head>
 <body>
-<style>
-    table, th, td {
-        border:1px solid black;
-    }
-</style>
-<ol>
-    <?php
-    $names= ['uman', 'suman', 'ritu','polar', 'golar'];
 
-    echo $names [3];
-
-    foreach ($names as $name) {
-        ?>
-        <li><?php echo $name; ?></li>
-
-        <?php
-    }
-    ?>
-</ol>
-
-
-
-<ul>
-    <?php
-    $items = [
-        [ 'firstname' => 'Uman', 'lastname' => 'Rai' ],
-        [ 'firstname' => 'Kaushila', 'lastname' => 'Rai1' ],
-        [ 'firstname' => 'Tejendra', 'lastname' => 'Rai2' ],
-    ];
-
-    foreach ($items as $user){
-
-        ?>
-
-        <li> <?php echo $user['firstname'] . " " . $user['lastname'];
-            ?> </li>
-    <?php } ?>
-</ul>
-
-<table>
-    <tr>
-        <th> Firstname </th>
-        <th> Lastname </th>
-
-    </tr>
-    <?php foreach ($items as $user) { ?>
-        <tr>
-            <td> <?php echo $user['firstname']; ?> </td>
-            <td> <?php echo $user['lastname']; ?> </td>
-
-        </tr>
-    <?php } ?>
-</table>
 
 <?php
-$images = [
-    'https://wprefers.com/wp-content/uploads/2022/06/yoast-vs-all-in-one.png',
-    'https://wprefers.com/wp-content/uploads/2023/07/remove-powered-by-wordpress-jpg.webp',
-    'https://wprefers.com/wp-content/uploads/2023/07/paraphrasing-tools.webp'
-];
+$bool = true;
+$a = 2;
+$b = 4;
+$c = "God";
+
+// if else condition
+if ($a < $b && !$bool){
+    echo "First condition is true!";
+} elseif ($a < $b && $bool){
+    echo "Second condition is true!" . "<br/>";
+} else {
+    echo "None of the condition were true!";
+}
+
+// Switch condition
+
+switch ($b) {
+    case 1:
+        echo "The first case is correct!";
+        break;
+    case 2:
+        echo "The second case is correct!";
+        break;
+    case 3:
+        echo "The third case is correct!";
+        break;
+    default: echo "None of the above cases is correct!" . "<br>";
+}
+switch ($c) {
+    case 1:
+        echo "God is not here!";
+        break;
+    case 2:
+        echo "God is't here!";
+        break;
+    case "God":
+        echo "God is here!" . "<br>";
+        break;
+    default: echo "None of the above cases is correct!";
+}
+
+// Match condition
+
+$result = match ($b){
+    1, 2, 4 => "variable b is equal to four!",
+    3 => "variable is b is equal to three!",
+    default => "None were a match!",
+};
+echo $result;
+
 ?>
-<?php foreach ($images as $image) { ?>
-    <img src="<?php echo $image; ?>" alt="poto" width="100" height="200">
-<?php } ?>
 
 </body>
+
 </html>
