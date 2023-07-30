@@ -7,69 +7,75 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <style>
-        table, th, td {
-            border:1px solid black;
-        }
-    </style>
-
-    <title>Condition && Control</title>
+    <title>Document</title>
 </head>
 <body>
 
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <input type="number" name="num01" placeholder="Number one">
+    <select name="operator">
+        <option value="add">+</option>
+        <option value="subtract">-</option>
+        <option value="multiply">*</option>
+        <option value="divide">/</option>
+    </select>
+    <input type="number" name="num02" placeholder="Number two">
+    <button>Calculate</button>
+</form>
 
 <?php
-$bool = true;
-$a = 2;
-$b = 4;
-$c = "God";
 
-// if else condition
-if ($a < $b && !$bool){
-    echo "First condition is true!";
-} elseif ($a < $b && $bool){
-    echo "Second condition is true!" . "<br/>";
-} else {
-    echo "None of the condition were true!";
-}
+ if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        /*$num01 = $_POST["num01"];
+        $num02 = $_POST["num02"];*/
 
-// Switch condition
+        // Sanitizing Or stopping users for providing wrong data
+        // Grab data from inputs
 
-switch ($b) {
-    case 1:
-        echo "The first case is correct!";
-        break;
-    case 2:
-        echo "The second case is correct!";
-        break;
-    case 3:
-        echo "The third case is correct!";
-        break;
-    default: echo "None of the above cases is correct!" . "<br>";
-}
-switch ($c) {
-    case 1:
-        echo "God is not here!";
-        break;
-    case 2:
-        echo "God is't here!";
-        break;
-    case "God":
-        echo "God is here!" . "<br>";
-        break;
-    default: echo "None of the above cases is correct!";
-}
+        $num01 = filter_input(INPUT_POST, "num01", FILTER_SANITIZE_NUMBER_FLOAT);
+        $num02 = filter_input(INPUT_POST, "num02", FILTER_SANITIZE_NUMBER_FLOAT);
+        $operator = htmlspecialchars($_POST["operator"]);
 
-// Match condition
+        // Error handlers : it prevents users, from submitting empty inputs
+        $errors = false;
+        // it is checking whether inputs are empty or not
+        if (empty($num01) || empty($num02) || empty($operator)) {
+            echo "<p class='calc-error'>Fill in all fields!</p>";
+            $errors = true;
+        }
 
-$result = match ($b){
-    1, 2, 4 => "variable b is equal to four!",
-    3 => "variable is b is equal to three!",
-    default => "None were a match!",
-};
-echo $result;
+        // it is checking whether inputs are numbers or not
+        if (!is_numeric($num01) || !is_numeric($num02)) {
+         echo "<p class='calc-error'>Only write numbers!</p>";
+         $errors = true;
+        }
 
+
+        // calculate the numbers if no errors
+        if (!$errors){
+            $value = 0;
+            switch ($operator) {
+                case "add":
+                    $value = $num01 + $num02;
+                    break;
+                case "subtract":
+                    $value = $num01 - $num02;
+                    break;
+                case "multiply":
+                    $value = $num01 * $num02;
+                    break;
+                case "divide":
+                    $value = $num01 / $num02;
+                    break;
+                default:
+                    echo "<p class='calc-error'>Something went wrong!</p>";
+            }
+
+            echo "<p class='calc-result'>Result = " . $value ."</p>";
+        }
+    }
 ?>
+
 
 </body>
 
