@@ -1,80 +1,70 @@
-<?php
-
-/*
- * What is array and objects
- */
-
-$args = []; // Short syntax array
-
-$args2 = array();
-
-$args = ["dsdas", "asdasda"];
-
-$dynamicItem = 'Uman';
-
-$args[] = $dynamicItem;
-$args[] = 'Sachin';
-$args[] = 'kin';
-echo "<br/>";
-
-// Args is a single dimensional array
-$sd = [ 'uman0', 'Uman1', 'Uman2', 'Uman3' , 'UManrai']; // 4
-
-//echo $sd[0];
-//echo $sd[1];
-//echo $sd[2];
-//echo $sd[3];
-//echo $sd[4];
-
-echo "<br />";
-foreach($sd as $sds) {
-    echo $sds . "<br />";
-}
-
-
-echo "<br />";
-
-// Multi dimensional array
-$md = [
-    [
-        'name' => 'Uman',
-        'value' => 'value1',
-        'age'  => 20,
-        'caste' => 'rai1'
-    ],
-
-    [
-        'name' => 'Sachin',
-        'value' => 'value1',
-        'age' => 23,
-        'caste' => 'rai'
-    ],
-];
-
-//echo $md[0]['caste'];
-
-foreach ($md as $mds) {
-    echo $mds['name'] . $mds['caste'] . $mds['age']. "<br>";
-}
-echo "<br />";
-foreach ($md as $mds) {
-    foreach ($mds as $key => $value) {
-        echo $key . ' = ' . $value . "<br>";
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+    table, th, td {
+        border:1px solid black;
     }
-}
+</style>
+<ol>
+    <?php
+    $names= ['uman', 'suman', 'ritu','polar', 'golar'];
+
+    echo $names [3];
+
+    foreach ($names as $name) {
+        ?>
+        <li><?php echo $name; ?></li>
+
+        <?php
+    }
+    ?>
+</ol>
 
 
-//// Creating a multi dimensional array
-//$multiargs = [];
-//
-//foreach ($args as $index => $arg) {
-//    $multiargs[] = [
-//        'value' => $arg,
-//        'index' => $index
-//    ];
-//}
-//echo "<br/>";
-//
-//echo "<pre>";
-//var_dump($multiargs);
-//echo "</pre>";
+
+<ul>
+    <?php
+    $items = [
+        [ 'firstname' => 'Uman', 'lastname' => 'Rai' ],
+        [ 'firstname' => 'Kaushila', 'lastname' => 'Rai1' ],
+        [ 'firstname' => 'Tejendra', 'lastname' => 'Rai2' ],
+    ];
+
+    foreach ($items as $user){
+
+        ?>
+
+        <li> <?php echo $user['firstname'] . " " . $user['lastname'];
+            ?> </li>
+    <?php } ?>
+</ul>
+
+<table>
+    <tr>
+        <th> Firstname </th>
+        <th> Lastname </th>
+
+    </tr>
+    <?php foreach ($items as $user) { ?>
+        <tr>
+            <td> <?php echo $user['firstname']; ?> </td>
+            <td> <?php echo $user['lastname']; ?> </td>
+
+        </tr>
+    <?php } ?>
+</table>
+
+<?php
+$images = [
+    'https://wprefers.com/wp-content/uploads/2022/06/yoast-vs-all-in-one.png',
+    'https://wprefers.com/wp-content/uploads/2023/07/remove-powered-by-wordpress-jpg.webp',
+    'https://wprefers.com/wp-content/uploads/2023/07/paraphrasing-tools.webp'
+];
+?>
+<?php foreach ($images as $image) { ?>
+    <img src="<?php echo $image; ?>" alt="poto" width="100" height="200">
+<?php } ?>
+
+</body>
+</html>
