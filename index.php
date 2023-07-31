@@ -7,40 +7,29 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <title>Condition</title>
+    <title>Array</title>
 </head>
 <body>
 
 <?php
 
-    $currentYear = date('Y');
+    $fruits = array("apple", "mango", "graph", "strawberry");
+    echo $fruits[2]; // it will display array value number 2 is graph.
+    $fruits[] = "orange"; // it will put orange in last of arrays.
+    echo "<br/>";
+    echo $fruits[4] . "<br />";
 
-    if ($currentYear == 2023) {
-      echo "Current Year ";
-    } else {
-      echo 'NO year';
-    }
+    // Associative array
+    $tasks = [
+            "laundry" => "Daniel",
+            "dishes" => "Sita",
+            "cooking" => "Gita",
+            "trash" => "Frida",
+    ];
 
-    echo nl2br("\n");
+    echo $tasks["laundry"] . "<br />";
+    print_r($tasks); // it's a built-in function that's display $tasks.
 
-    echo $currentYear == 2023 ? 'Current Year' : 'No Year';
-    echo nl2br("\n");
-
-    if ($currentYear == 2023) :
-      echo "Current Year ";
-    else :
-      echo 'NO year';
-    endif;
-
-    echo nl2br("\n");
-
-    $uyman = 'NoYear';
-
-    if ($currentYear == 2023) {
-      $uyman = "Current Year ";
-    }
-
-    echo $uyman;
 
 ?>
 
