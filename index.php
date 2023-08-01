@@ -1,8 +1,3 @@
-<?php
-
-declare(strict_types=1);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,38 +7,25 @@ declare(strict_types=1);
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <title>Document</title>
+    <title>Constants</title>
 </head>
 <body>
 
 <?php
+    // Constants mean constant, it won't change.
+    // Variable name always should be capital.
+    define("PI", 3.14);
+    define ("IS_Uman", "RAM");
+    echo PI . "<br />";
 
-    // user define function
-   /* function sayHello()
+    define("NAME", "uman");
+    echo NAME . "<br />";
+
+    function test()
     {
-        return "Hello world!";
+        echo IS_Uman;
     }
-
-    $test = sayHello();
-    echo $test . "<br />";*/
-
-    function sayHi(string $name) // $name = variable placeholder name // string is for passing name should be in string.
-    {
-        return "Hi " . $name. "!";
-    }
-    $test1 = sayHi("Uman"); // passing string=("Uman) to variable placeholder name=(#name)
-    echo $test1 . "<br />";
-    /*In this example, the function is named sayHi, and it takes a single parameter $name, which is expected to be of type string.
-    This means that the function will only accept a string as an argument for the $name parameter, and
-    it will throw a type error if you try to pass any other data type.*/
-
-    function calculator(int $num1, int $num2)
-    {
-        $results = $num1 + $num2;
-        return $results;
-    }
-    $cal = calculator(2,3);
-    echo $cal;
+    test();
 
 ?>
 
