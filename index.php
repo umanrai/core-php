@@ -1,3 +1,8 @@
+<?php
+
+declare(strict_types=1);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,29 +12,38 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <title>Array</title>
+    <title>Document</title>
 </head>
 <body>
 
 <?php
 
-    $fruits = array("apple", "mango", "graph", "strawberry");
-    echo $fruits[2]; // it will display array value number 2 is graph.
-    $fruits[] = "orange"; // it will put orange in last of arrays.
-    echo "<br/>";
-    echo $fruits[4] . "<br />";
+    // user define function
+   /* function sayHello()
+    {
+        return "Hello world!";
+    }
 
-    // Associative array
-    $tasks = [
-            "laundry" => "Daniel",
-            "dishes" => "Sita",
-            "cooking" => "Gita",
-            "trash" => "Frida",
-    ];
+    $test = sayHello();
+    echo $test . "<br />";*/
 
-    echo $tasks["laundry"] . "<br />";
-    print_r($tasks); // it's a built-in function that's display $tasks.
+    function sayHi(string $name) // $name = variable placeholder name // string is for passing name should be in string.
+    {
+        return "Hi " . $name. "!";
+    }
+    $test1 = sayHi("Uman"); // passing string=("Uman) to variable placeholder name=(#name)
+    echo $test1 . "<br />";
+    /*In this example, the function is named sayHi, and it takes a single parameter $name, which is expected to be of type string.
+    This means that the function will only accept a string as an argument for the $name parameter, and
+    it will throw a type error if you try to pass any other data type.*/
 
+    function calculator(int $num1, int $num2)
+    {
+        $results = $num1 + $num2;
+        return $results;
+    }
+    $cal = calculator(2,3);
+    echo $cal;
 
 ?>
 
