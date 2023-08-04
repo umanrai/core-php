@@ -4,19 +4,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $pwd = $_POST["pwd"];
     $email = $_POST["email"];
-
+var_dump($username);
     try {
         require_once "dbh.inc.php";
 
-        // None name parameter
-       /* $query = "INSERT INTO users (username, pwd, email) VALUES (?, ?, ?);";
-        $stmt = $pdoConnection->prepare($query);
-        $stmt->execute([$username, $pwd, $email]);
-        $pdoConnection = null;
-        $stmt = null;*/
-
         // Name parameter
-        $query = "INSERT INTO users (username, pwd, email) VALUES (:username, :pwd, :email);";
+        var_dump($username);
+        $query = "UPDATE users SET username = :username, pwd = :pwd, email = :email WHERE id = 7;";
         $stmt = $pdoConnection->prepare($query);
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":pwd", $pwd);
@@ -25,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdoConnection = null;
         $stmt = null;
 
-        header("location: ../index.php");
+        header("location: .../index.php");
         die();
 
     } catch (PDOException $e) {
