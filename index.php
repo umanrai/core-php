@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<h3>Signup</h3>
+<!--<h3>Signup</h3>
 
 <form action="includes/form-handler.inc.php" method="post">
     <input type="text" name="username" placeholder="Username">
@@ -34,7 +34,14 @@
     <input type="text" name="username" placeholder="Username">
     <input type="password" name="pwd" placeholder="Password">
     <button>Delete</button>
+</form>-->
+
+<form class="searchform" action="search.php" method="post">
+    <label for="search">Search for user:</label>
+    <input id="search" type="text" name="usersearch" placeholder="Search...">
+    <button>search</button>
 </form>
+
 
 </body>
 
