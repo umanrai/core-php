@@ -1,3 +1,15 @@
+<?php
+
+    session_start();
+    $_SESSION["username"] = "Uman";
+    $_SESSION["email"] = "mail@gmail.com";
+    //unset($_SESSION["username"]); // Deleting only one session data
+    // session_unset(); // Deleting all the session data
+
+    session_destroy(); // Stopping the session from running
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,39 +22,13 @@
 </head>
 <body>
 
-<!--<h3>Signup</h3>
+<?php
 
-<form action="includes/form-handler.inc.php" method="post">
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="pwd" placeholder="Password">
-    <input type="text" name="email" placeholder="E-Mail">
-    <button>Signup</button>
-</form>
-<br />
-
-<h3>Change account</h3>
-<form action="includes/userupdate.php" method="post">
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="pwd" placeholder="Password">
-    <input type="text" name="email" placeholder="E-Mail">
-    <button>Update</button>
-</form>
-<br />
-
-<h3>Delete account</h3>
-<form action="includes/userdelete.php" method="post">
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="pwd" placeholder="Password">
-    <button>Delete</button>
-</form>-->
-
-<form class="searchform" action="search.php" method="post">
-    <label for="search">Search for user:</label>
-    <input id="search" type="text" name="usersearch" placeholder="Search...">
-    <button>search</button>
-</form>
+echo $_SESSION["username"];
+echo $_SESSION["email"];
 
 
+?>
 </body>
 
 </html>
