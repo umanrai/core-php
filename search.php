@@ -7,8 +7,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once "includes/dbh.inc.php";
         // Name parameter
         $query = "SELECT * FROM comments WHERE username = :usersearch;";
+        $query2 = "SELECT * FROM comments WHERE username LIKE :usersearch";
         $stmt = $pdoConnection->prepare($query);
-        $stmt->bindParam(":usersearch", $usersearch);
+        $stmt->bindValue(':usersearch', "$usersearch", PDO::PARAM_STR);
+//        $stmt->bindValue(':usersearch', "%$usersearch%", PDO::PARAM_STR);
 
         $stmt->execute();
         $results = $stmt->fetchAll(pdo::FETCH_ASSOC);
