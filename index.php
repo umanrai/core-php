@@ -10,12 +10,15 @@
 </head>
 <body>
 
-<?php
+<h3>Signup</h3>
 
+<form action="includes/form-handler.inc.php" method="post">
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="pwd" placeholder="Password">
+    <input type="text" name="email" placeholder="E-Mail">
+    <button>Signup</button>
+</form>
 
-
-
-?>
 </body>
 
 </html>
