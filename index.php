@@ -1,13 +1,5 @@
 <?php
-
-    session_start();
-    $_SESSION["username"] = "Uman";
-    $_SESSION["email"] = "mail@gmail.com";
-    //unset($_SESSION["username"]); // Deleting only one session data
-    // session_unset(); // Deleting all the session data
-
-    session_destroy(); // Stopping the session from running
-
+require_once 'config.php'
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +16,7 @@
 
 <?php
 
-echo $_SESSION["username"];
-echo $_SESSION["email"];
+
 
 
 ?>
