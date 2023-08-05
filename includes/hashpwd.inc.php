@@ -1,28 +1,17 @@
 <?php
 
-$sensitiveData = "uman";
-$salt = bin2hex(random_bytes(16)); // Generates random salt
-$pepper = "ASecretPepperString";
+$pwdSignup = "uman";
 
-// echo "<br />" . $salt;
+$options = [
+  'cost' => 12
+];
 
-$dataToHash = $sensitiveData . $salt .$pepper;
-$hash = hash("sha256", $dataToHash);
+$hashedPwd = password_hash( $pwdSignup, PASSWORD_BCRYPT, $options ); // PASSWORD_BCRYPT is hashing algorithm.
 
-// echo "<br />" . $hash;
+$pwdLogin = "uman";
 
-// Checking above give data is same or not
-$sensitiveData = "uman";
-
-$storedSalt =$salt;
-$storedHash =$hash;
-$pepper = "ASecretPepperString";
-
-$dataToHash = $sensitiveData . $storedSalt .$pepper;
-$verificationHash = hash("sha256", $dataToHash);
-
-if ($storedHash === $verificationHash) {
-    echo "The data are the same!";
+if (password_verify($pwdLogin, $hashedPwd)){
+    echo "They are the same!";
 } else {
-    echo "The data are not the same!";
+    echo "They are not the same!";
 }
