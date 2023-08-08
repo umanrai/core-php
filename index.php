@@ -35,7 +35,6 @@
 <?php
 $feeds = new \App\Lib\Feed();
 $feedItems = $feeds->get();
-
 ?>
 
 <table>

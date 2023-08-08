@@ -4,3 +4,6 @@ Use
 Psr-4
 PHP magic methods
 function vs method
+
+constructor
+Access modifier
