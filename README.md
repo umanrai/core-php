@@ -15,3 +15,5 @@
 echo hello world;
 ```
 
+
+PSR : PHP standard recommendations

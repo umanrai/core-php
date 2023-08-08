@@ -1,0 +1,15 @@
+{
+    "name": "umanrai/core-php",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "umanrai",
+            "email": "umanrai58@gmail.com"
+        }
+    ],
+    "require": {}
+}

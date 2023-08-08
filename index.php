@@ -1,24 +1,57 @@
-<!DOCTYPE html>
+<?php
+    require 'vendor/autoload.php';
+
+    $user = new App\User();
+    ?>
+
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-    <title>Documents</title>
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
 </head>
 <body>
+<h1>Feeds - <?php echo $user->getFullName("uman", 'chamling', 'rai'); ?> - <?php echo $user->getCurrentTime(); ?></h1>
+<?php
+$feeds = new \App\Lib\Feed();
+$feedItems = $feeds->get();
+?>
 
-<h3>Signup</h3>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+    </tr>
+    <?php foreach ($feedItems as $feed) { ?>
+        <tr>
+            <td><?php echo $feed['name']; ?></td>
+            <td><?php echo $feed["email"]; ?></td>
+            <td><?php echo $feed["age"]; ?></td>
+        </tr>
+    <?php } ?>
 
-<form action="includes/form-handler.inc.php" method="post">
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="pwd" placeholder="Password">
-    <input type="text" name="email" placeholder="E-Mail">
-    <button>Signup</button>
-</form>
 
+</table>
 </body>
-
 </html>
