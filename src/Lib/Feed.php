@@ -10,16 +10,16 @@ class Feed
         $args = [
             [
                 "name" => "uman",
-                "age" => 30,
+                "feed" => "lroeam 1212121",
                 "email" => "sja@gmail.com"
             ],
             [
                 "name" => "sachin",
-                "age" => 20,
+                "feed" => "lroeam 222222",
                 "email" => "sachin@gmail.com"
             ],[
                 "name" => "polar",
-                "age" => 10,
+                "feed" => "lroeam 33333",
                 "email" => "polar@gmail.com"
             ]
         ];

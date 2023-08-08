@@ -35,23 +35,44 @@
 <?php
 $feeds = new \App\Lib\Feed();
 $feedItems = $feeds->get();
+
 ?>
 
 <table>
     <tr>
         <th>Name</th>
         <th>Email</th>
-        <th>Age</th>
+        <th>Feed</th>
     </tr>
     <?php foreach ($feedItems as $feed) { ?>
         <tr>
             <td><?php echo $feed['name']; ?></td>
             <td><?php echo $feed["email"]; ?></td>
-            <td><?php echo $feed["age"]; ?></td>
+            <td><?php echo $feed["feed"]; ?></td>
         </tr>
     <?php } ?>
 
 
 </table>
+
+<h2>User list</h2>
+<table>
+    <tr>
+        <th>Company</th>
+        <th>Contact</th>
+        <th>Country</th>
+    </tr>
+    <?php
+    $userItems = $user->get();
+    foreach ($userItems as $userItem) {
+    ?>
+    <tr>
+        <td><?php echo $userItem["Company"]; ?></td>
+        <td><?php echo $userItem["Contact"]; ?></td>
+        <td><?php echo $userItem["Country"]; ?></td>
+    </tr>
+    <?php } ?>
+</table>
+
 </body>
 </html>
